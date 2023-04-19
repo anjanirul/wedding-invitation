@@ -20,7 +20,7 @@ export default function Home() {
 
   return (
     <section
-      className={`w-full max-w-sm mx-auto text-white h-screen ${
+      className={`w-full max-w-md mx-auto text-white h-screen ${
         opened ? "" : "overflow-hidden"
       }`}
     >

@@ -14,9 +14,9 @@ module.exports = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontFamily: {
-        belle: ["var(--font-belle)"],
         lavishy: ["var(--font-lavishy)"],
         jemina: ["var(--font-jemina)"],
+        halant: ["var(--font-halant)"],
       },
     },
   },

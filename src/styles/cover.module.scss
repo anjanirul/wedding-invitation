@@ -1,8 +1,8 @@
 .coverScreen {
-  @apply relative h-full max-w-sm mx-auto bg-slate-900;
+  @apply relative h-full w-full mx-auto bg-slate-900;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 95%, #000000 100%),
     url("/envelope-cover.jpg");
-  background-position: center center;
+  background-position: bottom center;
   background-repeat: no-repeat;
   background-size: cover;
   transition: 0.35s ease-in-out;
@@ -13,7 +13,7 @@
 }
 
 .coverInfo {
-  @apply w-full flex items-center justify-between font-belle py-8 text-black;
+  @apply w-full flex items-center justify-between font-halant py-8 text-black text-xs;
 }
 
 .textgrad {
@@ -58,7 +58,7 @@
   @apply absolute bottom-0 left-0 right-0 w-full;
 
   .btmInside {
-    @apply pb-12 relative;
+    @apply pb-20 relative;
   }
 
   .btmCta {
@@ -67,7 +67,7 @@
 }
 
 .btn {
-  @apply font-belle text-sm flex p-2.5 text-center rounded-md text-black w-full justify-center;
+  @apply font-halant text-sm flex p-2.5 text-center rounded-md text-black w-full justify-center;
   background: linear-gradient(
       112.21deg,
       rgba(251, 251, 251, 0.41) -9.15%,

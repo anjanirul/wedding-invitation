@@ -1,3 +1,7 @@
 .event {
-  @apply relative bg-[#F1F6EF] text-black;
+  @apply relative bg-[#F1F6EF] text-black text-center;
+}
+
+.inner {
+  @apply py-[50px] px-8;
 }

@@ -1,18 +1,18 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import localfont from "next/font/local";
-import { Bellefair, Lavishly_Yours } from "next/font/google";
+import { Lavishly_Yours, Halant } from "next/font/google";
 import Head from "next/head";
 
-const fontBelle = Bellefair({
-  subsets: ["latin"],
-  variable: "--font-belle",
-  weight: ["400"],
-});
 const fontLavish = Lavishly_Yours({
   subsets: ["latin"],
   variable: "--font-lavishy",
   weight: ["400"],
+});
+const fontHalant = Halant({
+  subsets: ["latin"],
+  variable: "--font-halant",
+  weight: ["400", "600"],
 });
 const fontJemina = localfont({
   src: [
@@ -26,7 +26,7 @@ const fontJemina = localfont({
 });
 
 export default function App({ Component, pageProps }: AppProps) {
-  const fontClass = `${fontBelle.variable} ${fontLavish.variable} ${fontJemina.variable}`;
+  const fontClass = `${fontLavish.variable} ${fontJemina.variable} ${fontHalant.variable}`;
   return (
     <>
       <Head>

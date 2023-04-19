@@ -8,23 +8,23 @@ export default function Hero() {
         <IconBamboo />
       </div>
       <div className={style.bottom}>
-        <div className="font-belle">The wedding of</div>
+        <div className="font-halant text-sm">The wedding of</div>
         <div className={style.brideName}>
           anjani <span className={style.join}>&</span> irul
         </div>
-        <div className="font-belle mb-10">Minggu, 14 Mei 2023 </div>
+        <div className="font-halant mb-10 text-sm">Minggu, 14 Mei 2023 </div>
         <div className={style.bar}>
           <div className={style.flower} />
         </div>
-        <div className="font-belle max-w-[311px] mx-auto mt-10 mb-16">
-          <div className="mb-5">
+        <div className="font-halant max-w-[311px] mx-auto mt-10 mb-16 text-xs">
+          <div className="mb-5 leading-5">
             Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan
             pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung
             dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa
             kasih dan sayang. Sungguh, pada yang demikian itu benar-benar
             terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir.
           </div>
-          <div>QS. Ar-Rum Ayat 21</div>
+          <div className="font-semibold">QS. Ar-Rum Ayat 21</div>
         </div>
       </div>
     </div>

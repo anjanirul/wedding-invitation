@@ -30,7 +30,7 @@ export default function Cover({
       </div>
       <div className={style.bottomArea}>
         <div className={style.btmInside}>
-          <div className="bg-black p-1 text-center font-belle mb-5">
+          <div className="bg-black p-1 text-center font-halant mb-5 text-sm">
             Dear: Weekend Inc.
           </div>
           <div className={style.btmCta}>
