@@ -1,0 +1,89 @@
+.coverScreen {
+  @apply relative h-screen max-w-sm mx-auto bg-slate-900;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 95%, #000000 100%),
+    url("/envelope-cover.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.coverInfo {
+  @apply w-full flex items-center justify-between font-belle py-8 text-black;
+}
+
+.textgrad {
+  background: linear-gradient(
+      112.92deg,
+      rgba(251, 251, 251, 0.41) 10.09%,
+      #f1f6ef 45.75%,
+      rgba(251, 251, 251, 0) 141.84%
+    ),
+    linear-gradient(180deg, #c8ccc7 0%, #626561 158.33%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.brideName {
+  @apply font-jemina text-[64px] max-w-xs mx-auto;
+  line-height: 1;
+
+  * {
+    @extend .textgrad;
+  }
+
+  div {
+    @extend .textgrad;
+  }
+
+  div:nth-child(2) {
+    @apply text-right;
+  }
+
+  .join {
+    @apply font-lavishy inline-block mr-2;
+
+    line-height: 1.5;
+    transform: translate(0, -25%);
+  }
+}
+
+.bottomArea {
+  @apply absolute bottom-0 left-0 right-0 w-full;
+
+  .btmInside {
+    @apply pb-12 relative;
+  }
+
+  .btmCta {
+    @apply px-8;
+  }
+}
+
+.btn {
+  @apply font-belle text-sm flex p-2.5 text-center rounded-md text-black w-full justify-center;
+  background: linear-gradient(
+      112.21deg,
+      rgba(251, 251, 251, 0.41) -9.15%,
+      #f1f6ef 48.87%,
+      rgba(251, 251, 251, 0) 119.29%
+    ),
+    linear-gradient(180deg, #c0c0c0 0%, #636363 158.33%);
+  transition: 0.1s ease-in-out;
+}
+
+.btn:hover,
+.btn:focus {
+  background: linear-gradient(
+      112.21deg,
+      rgba(251, 251, 251, 0.41) -9.15%,
+      #f1f6ef 48.87%,
+      rgba(251, 251, 251, 0) 119.29%
+    ),
+    linear-gradient(180deg, #c0c0c0 0%, #636363 158.33%);
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
