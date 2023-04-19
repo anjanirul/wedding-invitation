@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import localfont from "next/font/local";
 import { Bellefair, Lavishly_Yours } from "next/font/google";
+import Head from "next/head";
 
 const fontBelle = Bellefair({
   subsets: ["latin"],
@@ -13,7 +14,7 @@ const fontLavish = Lavishly_Yours({
   variable: "--font-lavishy",
   weight: ["400"],
 });
-const jemina = localfont({
+const fontJemina = localfont({
   src: [
     {
       path: "./fonts/jemina/jemina-bold.woff2",
@@ -25,10 +26,19 @@ const jemina = localfont({
 });
 
 export default function App({ Component, pageProps }: AppProps) {
-  const fontClass = `${fontBelle.variable} ${fontLavish.variable} ${jemina.variable}`;
+  const fontClass = `${fontBelle.variable} ${fontLavish.variable} ${fontJemina.variable}`;
   return (
-    <main className={fontClass}>
-      <Component {...pageProps} />
-    </main>
+    <>
+      <Head>
+        <title>Anjani & Irul Invitation</title>
+        <meta
+          name="description"
+          content="Dengan segala kerendahan hati dan ucapan syukur atas rahmat Allah subhanahu wa ta’ala, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk hadir di acara pernikahan kami"
+        />
+      </Head>
+      <main className={fontClass}>
+        <Component {...pageProps} />
+      </main>
+    </>
   );
 }
