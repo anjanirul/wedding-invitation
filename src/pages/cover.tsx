@@ -14,7 +14,7 @@ export default function Cover({
   console.log({ isOpen });
 
   return (
-    <div className={style.coverScreen}>
+    <div className={`${style.coverScreen} ${isOpen ? style.open : ""}`}>
       <div className="px-8">
         <div className={style.coverInfo}>
           <div>Wedding Invitation by</div>
@@ -34,7 +34,9 @@ export default function Cover({
             Dear: Weekend Inc.
           </div>
           <div className={style.btmCta}>
-            <button className={style.btn}>Open Invitation</button>
+            <button className={style.btn} type="button" onClick={toggle}>
+              Open Invitation
+            </button>
           </div>
         </div>
       </div>
