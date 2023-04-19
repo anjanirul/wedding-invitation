@@ -1,9 +1,14 @@
+import { useState } from "react";
+import Cover from "./cover";
+
 export default function Home() {
+  const [opened, setOpened] = useState(false);
+
   return (
-    <div className="text-2xl ">
-      <div className="font-belle">Heheheh</div>
-      <div className="font-lavishy">Heheheh</div>
-      <div className="font-jemina">Heheheh</div>
-    </div>
+    <section className="w-full max-w-sm mx-auto text-white">
+      <div className="relative">
+        <Cover isOpen={opened} setOpen={setOpened} />
+      </div>
+    </section>
   );
 }
