@@ -34,7 +34,7 @@ export default function Cover({
             Dear: Weekend Inc.
           </div>
           <div className={style.btmCta}>
-            <button className={style.btn} type="button" onClick={toggle}>
+            <button className="btn-white" type="button" onClick={toggle}>
               Open Invitation
             </button>
           </div>

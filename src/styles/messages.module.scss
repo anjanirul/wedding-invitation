@@ -1,0 +1,7 @@
+.messageSection {
+  @apply relative bg-[#AFB6AE] py-[60px] px-8;
+
+  .inner {
+    @apply relative h-[614px] max-w-xs mx-auto text-center text-black;
+  }
+}

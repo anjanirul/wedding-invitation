@@ -65,30 +65,3 @@
     @apply px-8;
   }
 }
-
-.btn {
-  @apply font-halant text-sm flex p-2.5 text-center rounded-md text-black w-full justify-center;
-  background: linear-gradient(
-      112.21deg,
-      rgba(251, 251, 251, 0.41) -9.15%,
-      #f1f6ef 48.87%,
-      rgba(251, 251, 251, 0) 119.29%
-    ),
-    linear-gradient(180deg, #c0c0c0 0%, #636363 158.33%);
-  transition: 0.1s ease-in-out;
-}
-
-.btn:hover,
-.btn:focus {
-  background: linear-gradient(
-      112.21deg,
-      rgba(251, 251, 251, 0.41) -9.15%,
-      #f1f6ef 48.87%,
-      rgba(251, 251, 251, 0) 119.29%
-    ),
-    linear-gradient(180deg, #c0c0c0 0%, #636363 158.33%);
-}
-
-.btn:active {
-  transform: scale(0.97);
-}

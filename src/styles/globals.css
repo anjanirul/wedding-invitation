@@ -8,7 +8,6 @@ body {
   margin: 0;
   background: #000;
   min-height: 100vh;
-  font-family: var(--font-halant);
 }
 
 * {
@@ -21,7 +20,7 @@ main {
 }
 
 main {
-  @apply flex items-center;
+  @apply flex items-center font-halant;
 }
 
 .global-wrapper {
@@ -51,4 +50,31 @@ main {
   box-shadow: inset 0.5px 0.5px 0px rgba(0, 0, 0, 0.5),
     inset -1px -0.5px 0px rgba(255, 255, 255, 0.5);
   transition: 0.35s ease-in-out;
+}
+
+.btn-white {
+  @apply font-halant text-sm flex p-2.5 text-center rounded-md text-black w-full justify-center;
+  background: linear-gradient(
+      112.21deg,
+      rgba(251, 251, 251, 0.41) -9.15%,
+      #f1f6ef 48.87%,
+      rgba(251, 251, 251, 0) 119.29%
+    ),
+    linear-gradient(180deg, #c0c0c0 0%, #636363 158.33%);
+  transition: 0.1s ease-in-out;
+}
+
+.btn-white:hover,
+.btn-white:focus {
+  background: linear-gradient(
+      112.21deg,
+      rgba(251, 251, 251, 0.41) -9.15%,
+      #f1f6ef 48.87%,
+      rgba(251, 251, 251, 0) 119.29%
+    ),
+    linear-gradient(180deg, #c0c0c0 0%, #636363 158.33%);
+}
+
+.btn-white:active {
+  transform: scale(0.97);
 }

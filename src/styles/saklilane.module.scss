@@ -1,0 +1,10 @@
+.saklilaneSection {
+  @apply relative py-[70px] px-8 h-[568px] text-black;
+  background: url("/saklilane-1x.jpg");
+  background-position: center center;
+  background-size: cover;
+}
+
+.inner {
+  @apply max-w-xs mx-auto;
+}

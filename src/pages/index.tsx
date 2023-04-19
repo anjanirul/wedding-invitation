@@ -3,6 +3,9 @@ import Cover from "./cover";
 import Hero from "./hero";
 import Introduction from "./introduction";
 import EVent from "./Event";
+import Presence from "./presence";
+import Messages from "./messages";
+import Saklilane from "./saklilane";
 
 export default function Home() {
   const [opened, setOpened] = useState(false);
@@ -30,6 +33,9 @@ export default function Home() {
         <Hero />
         <Introduction />
         <EVent />
+        <Presence />
+        <Messages />
+        <Saklilane />
       </div>
     </section>
   );
