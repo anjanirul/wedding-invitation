@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import Cover from "./cover";
 import Hero from "./hero";
+import Introduction from "./introduction";
+import EVent from "./Event";
 
 export default function Home() {
   const [opened, setOpened] = useState(false);
@@ -26,7 +28,8 @@ export default function Home() {
 
       <div className="relative h-full">
         <Hero />
-        <div className="h-screen">b</div>
+        <Introduction />
+        <EVent />
       </div>
     </section>
   );

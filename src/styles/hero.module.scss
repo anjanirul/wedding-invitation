@@ -1,6 +1,6 @@
 .hero {
-  @apply relative min-h-full;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 91.04%),
+  @apply relative min-h-full overflow-hidden;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 65.04%),
     url("/hero-cover.jpg");
   background-position: top center;
   background-size: contain;
@@ -12,7 +12,9 @@
 }
 
 .bottom {
-  @apply absolute bottom-0 left-0 right-0 w-full text-center;
+  // @apply absolute top-[65%] left-0 right-0 w-full text-center;
+  @apply relative text-center;
+  margin-top: 60vh;
 }
 
 .brideName {
@@ -24,7 +26,7 @@
 }
 
 .bar {
-  @apply relative;
+  @apply relative h-10;
 
   .flower {
     @apply w-6 h-6 bg-black;

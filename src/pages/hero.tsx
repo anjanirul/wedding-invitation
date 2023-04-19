@@ -16,6 +16,16 @@ export default function Hero() {
         <div className={style.bar}>
           <div className={style.flower} />
         </div>
+        <div className="font-belle max-w-[311px] mx-auto mt-10 mb-16">
+          <div className="mb-5">
+            Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan
+            pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung
+            dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa
+            kasih dan sayang. Sungguh, pada yang demikian itu benar-benar
+            terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir.
+          </div>
+          <div>QS. Ar-Rum Ayat 21</div>
+        </div>
       </div>
     </div>
   );

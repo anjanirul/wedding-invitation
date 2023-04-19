@@ -1,0 +1,19 @@
+.introduction {
+  @apply relative overflow-hidden text-center;
+}
+
+.bride {
+  @apply relative w-full pt-[60px];
+  background: url("/on-the-table.jpg");
+  background-position: top center;
+  background-size: cover;
+  height: 470px;
+}
+
+.brideName {
+  @apply text-black mb-2.5 text-lg font-jemina;
+}
+
+.brideOrigin {
+  @apply text-white font-belle text-sm;
+}
