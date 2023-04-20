@@ -4,9 +4,11 @@ import { useState } from "react";
 export default function Select({
   placeholder = "",
   list,
+  onChange,
 }: {
   placeholder: string;
   list?: Array<object>;
+  onChange?: (arg: any) => void;
 }) {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState<any>("");
@@ -27,10 +29,12 @@ export default function Select({
         <div className="select__options">
           {list?.map((i: any) => (
             <button
+              type="button"
               className="select__option"
               key={i.value}
               onClick={() => {
                 setSelected(i);
+                if (typeof onChange === "function") onChange(i);
                 setOpen(false);
               }}
             >
