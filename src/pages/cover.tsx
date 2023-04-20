@@ -1,4 +1,5 @@
 import style from "@/styles/cover.module.scss";
+import { useRouter } from "next/router";
 
 export default function Cover({
   isOpen,
@@ -10,8 +11,12 @@ export default function Cover({
   let height = "max-h-[700px]";
   if (isOpen) height = "max-h-[0px] overflow-hidden";
 
+  const { query } = useRouter();
+
   const toggle = () => setOpen(!isOpen);
-  console.log({ isOpen });
+
+  let guestName = "Tamu Terhormat";
+  if (query.for) guestName = `${query.for}`;
 
   return (
     <div className={`${style.coverScreen} ${isOpen ? style.open : ""}`}>
@@ -31,7 +36,7 @@ export default function Cover({
       <div className={style.bottomArea}>
         <div className={style.btmInside}>
           <div className="bg-black p-1 text-center font-halant mb-5 text-sm">
-            Dear: Weekend Inc.
+            Dear: {guestName}
           </div>
           <div className={style.btmCta}>
             <button className="btn-white" type="button" onClick={toggle}>

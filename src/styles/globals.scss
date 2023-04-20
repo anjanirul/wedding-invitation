@@ -112,6 +112,18 @@ main {
 
   .select__option {
     @apply flex items-center justify-between w-full text-left h-10 px-5;
+
+    & > div:nth-child(2) {
+      @apply relative h-2 w-2;
+
+      span {
+        @apply absolute left-0 top-0 w-2 h-2 bg-white rounded-full;
+      }
+
+      span:nth-child(2) {
+        @apply absolute left-0 top-0 w-2 h-2 border border-white rounded-full animate-ping;
+      }
+    }
   }
 
   &.select-open {

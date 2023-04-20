@@ -14,12 +14,13 @@ export default function Select({
   const [selected, setSelected] = useState<any>("");
 
   const toggle = () => setOpen(!open);
+  const close = () => setOpen(false);
 
   const textDisplay = selected?.label || selected?.value || placeholder;
 
   return (
     <div className="relative">
-      <div className={`select ${open ? "select-open" : ""}`}>
+      <div className={`select ${open ? "select-open" : ""}`} onBlur={close}>
         <button type="button" onClick={toggle} className="select__cta">
           <div className="input__placeholder">{textDisplay}</div>
           <div className="select__arrow">
@@ -38,11 +39,11 @@ export default function Select({
                 setOpen(false);
               }}
             >
-              <span>{i.label}</span>
+              <div>{i.label}</div>
               {i.value === selected.value && (
-                <div className="relative">
-                  <span className="absolute left-0 top-0 w-2 h-2 bg-white rounded-full"></span>
-                  <span className="absolute left-0 top-0 w-2 h-2 border border-white rounded-full animate-ping"></span>
+                <div>
+                  <span></span>
+                  <span></span>
                 </div>
               )}
             </button>

@@ -1,7 +1,52 @@
 .messageSection {
-  @apply relative bg-[#AFB6AE] py-[60px] px-8;
+  @apply relative bg-[#AFB6AE] pt-[60px] px-8;
 
   .inner {
-    @apply relative h-[614px] max-w-xs mx-auto text-center text-black;
+    @apply relative max-w-xs mx-auto text-center text-black;
+  }
+
+  .chatList {
+    @apply relative h-[520px] overflow-y-auto;
+  }
+
+  .chat {
+    @apply bg-[#F1F6EF] py-5 px-5 text-black mb-4 rounded-[4px] text-left;
+
+    .chatName {
+      @apply text-sm font-semibold mb-1;
+    }
+
+    .chatMessage {
+      @apply text-sm leading-5;
+    }
+
+    .status {
+      @apply relative w-2 h-2 rounded-full bg-gray-400;
+
+      &::after {
+        content: "";
+        @apply absolute left-0 top-0 rounded-full w-full h-full bg-transparent border border-gray-400 animate-ping;
+      }
+    }
+
+    &.yes {
+      .status {
+        @apply bg-green-400;
+
+        &::after {
+          @apply border-green-400;
+        }
+      }
+    }
+
+    &.no {
+      .status {
+        @apply bg-red-400;
+
+        &::after {
+          @apply border-red-400;
+        }
+      }
+    }
   }
 }
