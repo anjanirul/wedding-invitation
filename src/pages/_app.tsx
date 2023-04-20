@@ -1,4 +1,4 @@
-import "@/styles/globals.css";
+import "@/styles/globals.scss";
 import type { AppProps } from "next/app";
 import localfont from "next/font/local";
 import { Lavishly_Yours, Halant } from "next/font/google";
