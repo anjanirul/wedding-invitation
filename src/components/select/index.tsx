@@ -38,7 +38,13 @@ export default function Select({
                 setOpen(false);
               }}
             >
-              {i.label}
+              <span>{i.label}</span>
+              {i.value === selected.value && (
+                <div className="relative">
+                  <span className="absolute left-0 top-0 w-2 h-2 bg-white rounded-full"></span>
+                  <span className="absolute left-0 top-0 w-2 h-2 border border-white rounded-full animate-ping"></span>
+                </div>
+              )}
             </button>
           ))}
         </div>

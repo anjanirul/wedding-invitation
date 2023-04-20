@@ -1,4 +1,5 @@
 import Select from "@/components/select";
+import Textarea from "@/components/textarea";
 import style from "@/styles/presence.module.scss";
 import { useState } from "react";
 
@@ -31,7 +32,12 @@ export default function Presence() {
               { value: "no", label: "Maaf, Saya tidak bisa hadir" },
             ]}
           />
-          <input className="input" placeholder="Tulis Salam & Pesan" />
+          <Textarea
+            placeholder="Tulis Salam & Pesan"
+            onChange={(e) =>
+              setForm({ ...form, message: e.target.value || "" })
+            }
+          />
           <button className="btn-white">Kirim</button>
         </form>
       </div>

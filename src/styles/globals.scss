@@ -111,7 +111,7 @@ main {
   }
 
   .select__option {
-    @apply block w-full text-left h-10 px-5;
+    @apply flex items-center justify-between w-full text-left h-10 px-5;
   }
 
   &.select-open {
@@ -125,5 +125,18 @@ main {
     .select__options {
       @apply h-[90px] pb-2;
     }
+  }
+}
+
+.textarea {
+  @extend .input;
+  @apply h-[44px] max-h-[44px] transition-all duration-200;
+
+  &:focus {
+    @apply max-h-32 h-32;
+  }
+
+  &.textarea__heighted {
+    @apply max-h-32 h-32;
   }
 }
