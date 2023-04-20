@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
+import NewHero from "./new-hero";
 import Cover from "./cover";
-import Hero from "./hero";
 import Introduction from "./introduction";
 import EVent from "./Event";
 import Presence from "./presence";
@@ -30,7 +30,7 @@ export default function Home() {
       <Cover isOpen={opened} setOpen={setOpened} />
 
       <div className="relative h-full">
-        <Hero />
+        <NewHero />
         <Introduction />
         <EVent />
         <Presence />

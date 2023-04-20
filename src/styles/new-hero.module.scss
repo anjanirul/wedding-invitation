@@ -1,0 +1,66 @@
+.newHero {
+  @apply relative;
+  background: linear-gradient(
+      180deg,
+      transparent 25%,
+      rgba(0, 0, 0, 0.1) 45%,
+      #000000 63.54%
+    ),
+    url("/hero-cover.webp"), url("/hero-cover.jpg");
+  background-position: top center;
+  background-size: contain;
+  min-height: 570px;
+  overflow: hidden;
+
+  .bambooIcon {
+    @apply absolute left-[50%] top-[70px];
+    transform: translate(-50%, 0);
+  }
+
+  .content {
+    margin-top: 65vh;
+    @apply text-center text-sm;
+  }
+
+  .brideName {
+    @apply mt-6 mb-10 font-jemina text-[46px] flex justify-center items-center;
+
+    .join {
+      @apply text-[64px] font-lavishy mx-4;
+    }
+  }
+
+  .bar {
+    @apply relative h-10 mb-10;
+
+    .flower {
+      @apply w-6 h-6 bg-black;
+      background: url("/flower.png");
+      background-position: center center;
+      background-size: contain;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      height: 1px;
+      background: #fff;
+      width: 40%;
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+    }
+
+    &::before {
+      left: 0;
+    }
+
+    &::after {
+      right: 0;
+    }
+  }
+}
