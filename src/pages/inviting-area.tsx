@@ -24,7 +24,8 @@ export default function InvitingArea() {
       if (status === 201) {
         alert("Link tamu baru berhasil dibuat");
         mutate("/api/get-guest");
-        document.getElementById("formCreate").reset();
+        let els: any = document.getElementById("formCreate");
+        if (els) els.reset();
       } else alert(`Link tamu gagal dibuat --- ${error?.message}`);
       setLoading(false);
       console.log("WRITE: ", body);
