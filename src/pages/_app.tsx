@@ -27,14 +27,21 @@ const fontJemina = localfont({
 
 export default function App({ Component, pageProps }: AppProps) {
   const fontClass = `${fontLavish.variable} ${fontJemina.variable} ${fontHalant.variable}`;
+
+  const title = "Anjani & Irul Invitation";
+  const description =
+    "Dengan segala kerendahan hati dan ucapan syukur atas rahmat Allah subhanahu wa ta’ala, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk hadir di acara pernikahan kami";
+
   return (
     <>
       <Head>
-        <title>Anjani & Irul Invitation</title>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
         <meta
-          name="description"
-          content="De
-          ngan segala kerendahan hati dan ucapan syukur atas rahmat Allah subhanahu wa ta’ala, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk hadir di acara pernikahan kami"
+          property="og:image"
+          content="https://anjanidanirul.com/thumbnail.jpg"
         />
       </Head>
       <main className={fontClass}>
