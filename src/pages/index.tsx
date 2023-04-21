@@ -3,7 +3,6 @@ export function getStaticProps() {
     redirect: {
       destination: "/404",
     },
-    fallback: true,
     props: {
       status: "no-render",
     },
