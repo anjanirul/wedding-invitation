@@ -5,9 +5,7 @@ import EVent from "@/sections/Event";
 import Presence from "@/sections/presence";
 import Messages from "@/sections/messages";
 import Saklilane from "@/sections/saklilane";
-import useGetMessage from "@/hooks/useGetMessage";
 import NewCover from "@/sections/new-cover";
-import { slugSession } from "@/helpers";
 import supabase from "@/supabase";
 
 export async function getStaticPaths() {
@@ -28,17 +26,17 @@ export async function getStaticPaths() {
 export async function getStaticProps(context: any) {
   const slug = context.params.slug;
 
-  if (slug === "pg" || slug === "sg")
-    return {
-      props: { slug, user: null },
-      revalidate: 30,
-    };
-  else {
+  if (slug !== "pg" && slug !== "sg") {
     const { data } = await supabase().from("invited").select().eq("path", slug);
     return {
       props: { slug, user: data?.[0] },
     };
   }
+
+  return {
+    props: { slug, user: null },
+    revalidate: 30,
+  };
 }
 
 export default function SubSlug({ slug, user }: { slug: string; user: any }) {
