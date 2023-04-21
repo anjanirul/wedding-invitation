@@ -2,8 +2,9 @@ import { getSessionTime } from "@/helpers";
 import style from "@/styles/event.module.scss";
 import Link from "next/link";
 
-export default function EVent({ slug }: { slug: "pg" | "sg" }) {
+export default function EVent({ slug, user }: { slug: any; user: any }) {
   let eventTime = getSessionTime(slug);
+  if (user && user.session) eventTime = getSessionTime(user.session);
 
   return (
     <div className={style.event}>

@@ -4,13 +4,16 @@ import { useRouter } from "next/router";
 export default function NewCover({
   isOpen,
   setOpen,
+  user,
 }: {
   isOpen: boolean;
   setOpen: (arg: any) => void;
+  user: any;
 }) {
   const { query } = useRouter();
 
-  const guestName = query.tamu || "Tamu Terhormat";
+  let guestName = query.tamu || "Tamu Terhormat";
+  if (user && user.name) guestName = user.name;
 
   return (
     <div className={`${style.newCover} ${isOpen ? style.opened : ""}`}>

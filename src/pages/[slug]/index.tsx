@@ -8,34 +8,41 @@ import Saklilane from "@/sections/saklilane";
 import useGetMessage from "@/hooks/useGetMessage";
 import NewCover from "@/sections/new-cover";
 import { slugSession } from "@/helpers";
+import supabase from "@/supabase";
 
-export function getStaticPaths() {
+export async function getStaticPaths() {
+  const { data } = await supabase().from("invited").select();
+
+  let userdata = data || [];
+
   return {
-    paths: slugSession.map((s: any) => ({ params: { slug: s.name } })),
-    fallback: false,
+    paths: [
+      { params: { slug: "pg" } },
+      { params: { slug: "sg" } },
+      ...userdata.map((i: any) => ({ params: { slug: i.path } })),
+    ],
+    fallback: true,
   };
 }
 
 export async function getStaticProps(context: any) {
   const slug = context.params.slug;
 
-  if (!slug)
+  if (slug === "pg" || slug === "sg")
     return {
-      redirect: {
-        destination: "/404",
-      },
+      props: { slug, user: null },
+      revalidate: 30,
     };
-
-  return {
-    props: { slug },
-    revalidate: 30,
-  };
+  else {
+    const { data } = await supabase().from("invited").select().eq("path", slug);
+    return {
+      props: { slug, user: data?.[0] },
+    };
+  }
 }
 
-export default function SubSlug(props: any) {
+export default function SubSlug({ slug, user }: { slug: string; user: any }) {
   const [opened, setOpened] = useState(false);
-
-  const { messages = [] } = useGetMessage();
 
   return (
     <section
@@ -46,12 +53,12 @@ export default function SubSlug(props: any) {
       <div className="relative h-full">
         <NewHero />
         <Introduction />
-        <EVent slug={props.slug} />
-        <Presence slug={props.slug} />
-        <Messages messages={messages} />
+        <EVent slug={slug} user={user} />
+        <Presence slug={slug} />
+        <Messages />
         <Saklilane />
       </div>
-      <NewCover isOpen={opened} setOpen={setOpened} />
+      <NewCover isOpen={opened} setOpen={setOpened} user={user} />
     </section>
   );
 }
