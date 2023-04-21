@@ -26,7 +26,6 @@ export default function Presence({ slug }: any) {
         slug,
         given_name: query.tamu,
       };
-      console.log("write: ", body);
       setLoading(true);
       const { status } = await supabase().from("messages").insert(body);
       mutate("/api/get-messages");
@@ -36,8 +35,6 @@ export default function Presence({ slug }: any) {
       }, 1000);
     }
   };
-
-  console.log(form, Object.values(form).length);
 
   let statusMessage: any = "Pesan kamu sedang dikirim...";
   if (status === "success")
