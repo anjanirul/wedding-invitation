@@ -8,6 +8,7 @@ import Presence from "@/sections/presence";
 import Messages from "@/sections/messages";
 import Saklilane from "@/sections/saklilane";
 import useGetMessage from "@/hooks/useGetMessage";
+import NewCover from "@/sections/new-cover";
 
 export function getStaticPaths() {
   return {
@@ -43,7 +44,7 @@ export default function SubSlug(props: any) {
         opened ? "" : "overflow-hidden"
       }`}
     >
-      <Cover isOpen={opened} setOpen={setOpened} />
+      <NewCover isOpen={opened} setOpen={setOpened} />
       <div className="relative h-full">
         <NewHero />
         <Introduction />
