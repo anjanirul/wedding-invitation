@@ -44,7 +44,6 @@ export default function SubSlug(props: any) {
         opened ? "" : "overflow-hidden"
       }`}
     >
-      <NewCover isOpen={opened} setOpen={setOpened} />
       <div className="relative h-full">
         <NewHero />
         <Introduction />
@@ -53,6 +52,7 @@ export default function SubSlug(props: any) {
         <Messages messages={messages} />
         <Saklilane />
       </div>
+      <NewCover isOpen={opened} setOpen={setOpened} />
     </section>
   );
 }
