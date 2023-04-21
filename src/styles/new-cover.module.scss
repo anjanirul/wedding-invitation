@@ -4,7 +4,7 @@
       180deg,
       rgba(0, 0, 0, 0) 0%,
       rgba(0, 0, 0, 0.1) 35%,
-      #000 105%
+      #000 200%
     ),
     url("/envelope-cover.jpg");
   background-position: center center;
@@ -16,7 +16,50 @@
   }
 
   .topArea {
-    @apply absolute left-[50%] top-14 -translate-x-[50%];
+    @apply relative p-8 mx-auto;
+  }
+
+  .event {
+    @apply flex items-center justify-between text-sm text-black mb-8;
+  }
+
+  .bride {
+    @apply relative font-jemina text-[64px] max-w-[340px] mx-auto;
+
+    .name {
+      line-height: 1;
+      background: linear-gradient(
+          112.92deg,
+          rgba(251, 251, 251, 0.41) 10.09%,
+          #f1f6ef 45.75%,
+          rgba(251, 251, 251, 0) 141.84%
+        ),
+        linear-gradient(180deg, #c8ccc7 0%, #626561 158.33%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+
+      &:nth-child(2) {
+        text-align: right;
+      }
+    }
+
+    .name .join {
+      @apply relative font-lavishy text-[66px] inline-block -translate-y-5;
+      line-height: 1.1;
+      background: linear-gradient(
+          112.92deg,
+          rgba(251, 251, 251, 0.41) 10.09%,
+          #f1f6ef 45.75%,
+          rgba(251, 251, 251, 0) 141.84%
+        ),
+        linear-gradient(180deg, #c8ccc7 0%, #626561 158.33%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
   }
 
   .bottomArea {
