@@ -3,6 +3,7 @@ export function getStaticProps() {
     redirect: {
       destination: "/404",
     },
+    fallback: true,
   };
 }
 
