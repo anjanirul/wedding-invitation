@@ -5,6 +5,7 @@ import style from "@/styles/presence.module.scss";
 import supabase from "@/supabase";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { useSWRConfig } from "swr";
 
 export default function Presence({ slug }: any) {
   const [form, setForm] = useState<any>({});
@@ -12,6 +13,7 @@ export default function Presence({ slug }: any) {
   const [status, setStatus] = useState("");
 
   const { query } = useRouter();
+  const { mutate } = useSWRConfig();
 
   const submit = async (e: any) => {
     e.preventDefault();
@@ -27,6 +29,7 @@ export default function Presence({ slug }: any) {
       console.log("write: ", body);
       setLoading(true);
       const { status } = await supabase().from("messages").insert(body);
+      mutate("/api/get-messages");
       setTimeout(() => {
         setLoading(false);
         setStatus(status === 201 ? "success" : "error");

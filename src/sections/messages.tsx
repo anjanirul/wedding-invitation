@@ -4,16 +4,16 @@ import { useRouter } from "next/router";
 const ChatItem = ({
   name,
   message,
-  pressence,
+  presence,
   showStatus,
 }: {
   name: string;
   message: string;
-  pressence: boolean;
+  presence: boolean;
   showStatus: boolean;
 }) => {
   return (
-    <div className={`${style.chat} ${style[pressence ? "yes" : "no"]}`}>
+    <div className={`${style.chat} ${style[presence ? "yes" : "no"]}`}>
       <div className="flex items-start justify-between w-full">
         <div className={style.chatName}>{name}</div>
         <div>{showStatus && <div className={style.status} />}</div>

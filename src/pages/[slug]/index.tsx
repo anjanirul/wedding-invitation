@@ -1,5 +1,4 @@
 import { useState } from "react";
-import supabase from "@/supabase";
 
 import Cover from "@/sections/cover";
 import NewHero from "@/sections/new-hero";
@@ -8,6 +7,7 @@ import EVent from "@/sections/Event";
 import Presence from "@/sections/presence";
 import Messages from "@/sections/messages";
 import Saklilane from "@/sections/saklilane";
+import useGetMessage from "@/hooks/useGetMessage";
 
 export function getStaticPaths() {
   return {
@@ -19,8 +19,6 @@ export function getStaticPaths() {
 export async function getStaticProps(context: any) {
   const slug = context.params.slug;
 
-  const { data } = await supabase().from("messages").select();
-
   if (!slug)
     return {
       redirect: {
@@ -29,13 +27,15 @@ export async function getStaticProps(context: any) {
     };
 
   return {
-    props: { slug, messages: data },
+    props: { slug },
     revalidate: 30,
   };
 }
 
 export default function SubSlug(props: any) {
   const [opened, setOpened] = useState(false);
+
+  const { messages = [] } = useGetMessage();
 
   return (
     <section
@@ -49,7 +49,7 @@ export default function SubSlug(props: any) {
         <Introduction />
         <EVent slug={props.slug} />
         <Presence slug={props.slug} />
-        <Messages messages={props.messages} />
+        <Messages messages={messages} />
         <Saklilane />
       </div>
     </section>
