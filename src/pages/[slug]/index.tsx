@@ -1,6 +1,4 @@
 import { useState } from "react";
-
-import Cover from "@/sections/cover";
 import NewHero from "@/sections/new-hero";
 import Introduction from "@/sections/introduction";
 import EVent from "@/sections/Event";
@@ -9,10 +7,11 @@ import Messages from "@/sections/messages";
 import Saklilane from "@/sections/saklilane";
 import useGetMessage from "@/hooks/useGetMessage";
 import NewCover from "@/sections/new-cover";
+import { slugSession } from "@/helpers";
 
 export function getStaticPaths() {
   return {
-    paths: [{ params: { slug: "family" } }, { params: { slug: "friends" } }],
+    paths: slugSession.map((s: any) => ({ params: { slug: s.name } })),
     fallback: false,
   };
 }

@@ -33,7 +33,8 @@ export default function App({ Component, pageProps }: AppProps) {
         <title>Anjani & Irul Invitation</title>
         <meta
           name="description"
-          content="Dengan segala kerendahan hati dan ucapan syukur atas rahmat Allah subhanahu wa ta’ala, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk hadir di acara pernikahan kami"
+          content="De
+          ngan segala kerendahan hati dan ucapan syukur atas rahmat Allah subhanahu wa ta’ala, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk hadir di acara pernikahan kami"
         />
       </Head>
       <main className={fontClass}>

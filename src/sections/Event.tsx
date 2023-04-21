@@ -1,10 +1,10 @@
+import { getSessionTime } from "@/helpers";
 import style from "@/styles/event.module.scss";
 import Link from "next/link";
 
-export default function EVent({ slug }: { slug?: "family" | "friends" }) {
-  let eventTime = "";
-  if (slug === "family") eventTime = "11.00 - 13.00";
-  else if (slug === "friends") eventTime = "13.30 - 15.30";
+export default function EVent({ slug }: { slug: "pg" | "sg" }) {
+  let eventTime = getSessionTime(slug);
+
   return (
     <div className={style.event}>
       <div className={style.inner}>

@@ -1,6 +1,5 @@
 import style from "@/styles/new-cover.module.scss";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 
 export default function NewCover({
   isOpen,
@@ -10,6 +9,8 @@ export default function NewCover({
   setOpen: (arg: any) => void;
 }) {
   const { query } = useRouter();
+
+  const guestName = query.tamu || "Tamu Terhormat";
 
   return (
     <div className={`${style.newCover} ${isOpen ? style.opened : ""}`}>
@@ -27,7 +28,7 @@ export default function NewCover({
           </div>
         </div>
         <div className={style.bottomArea}>
-          <div className={style.guestName}>Dear: {query.tamu}</div>
+          <div className={style.guestName}>Dear: {guestName}</div>
           <div className="px-8">
             <button className="btn-white" onClick={() => setOpen(true)}>
               Open Invitation
