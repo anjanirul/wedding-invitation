@@ -34,7 +34,6 @@ export default function Select({
           disabled ? "disabled" : ""
         }`}
         onBlur={close}
-        onFocus={doOpen}
       >
         <button type="button" onClick={toggle} className="select__cta">
           <div className="input__placeholder">{textDisplay}</div>

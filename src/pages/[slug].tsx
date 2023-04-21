@@ -7,6 +7,8 @@ import Messages from "@/sections/messages";
 import Saklilane from "@/sections/saklilane";
 import NewCover from "@/sections/new-cover";
 import supabase from "@/supabase";
+import { useRouter } from "next/router";
+import Loading from "@/components/loading";
 
 export async function getStaticPaths() {
   const { data } = await supabase().from("invited").select();
@@ -41,6 +43,10 @@ export async function getStaticProps(context: any) {
 
 export default function SubSlug({ slug, user }: { slug: string; user: any }) {
   const [opened, setOpened] = useState(false);
+
+  const { isFallback } = useRouter();
+
+  if (isFallback) return <Loading />;
 
   return (
     <section
