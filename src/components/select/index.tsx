@@ -5,22 +5,37 @@ export default function Select({
   placeholder = "",
   list,
   onChange,
+  disabled,
 }: {
   placeholder: string;
   list?: Array<object>;
   onChange?: (arg: any) => void;
+  disabled?: boolean;
 }) {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState<any>("");
 
-  const toggle = () => setOpen(!open);
-  const close = () => setOpen(false);
+  const toggle = () => {
+    if (!disabled) setOpen(!open);
+  };
+  const close = () => {
+    if (!disabled) setOpen(false);
+  };
+  const doOpen = () => {
+    if (!disabled) setOpen(true);
+  };
 
   const textDisplay = selected?.label || selected?.value || placeholder;
 
   return (
     <div className="relative">
-      <div className={`select ${open ? "select-open" : ""}`} onBlur={close}>
+      <div
+        className={`select ${open ? "select-open" : ""} ${
+          disabled ? "disabled" : ""
+        }`}
+        onBlur={close}
+        onFocus={doOpen}
+      >
         <button type="button" onClick={toggle} className="select__cta">
           <div className="input__placeholder">{textDisplay}</div>
           <div className="select__arrow">
@@ -37,6 +52,8 @@ export default function Select({
                 setSelected(i);
                 if (typeof onChange === "function") onChange(i);
                 setOpen(false);
+                let els: any = document.querySelector(":focus");
+                if (els) els.blur();
               }}
             >
               <div>{i.label}</div>

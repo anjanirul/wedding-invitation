@@ -3,9 +3,11 @@ import { useState } from "react";
 export default function Textarea({
   placeholder,
   onChange,
+  disabled,
 }: {
   placeholder: string;
   onChange: (e: any) => void;
+  disabled?: boolean;
 }) {
   const [value, setValue] = useState("");
   const change = (e: any) => {
@@ -18,6 +20,7 @@ export default function Textarea({
       placeholder={placeholder}
       onChange={change}
       value={value}
+      disabled={disabled}
     ></textarea>
   );
 }

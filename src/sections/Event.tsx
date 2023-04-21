@@ -1,7 +1,10 @@
 import style from "@/styles/event.module.scss";
 import Link from "next/link";
 
-export default function EVent() {
+export default function EVent({ slug }: { slug?: "family" | "friends" }) {
+  let eventTime = "";
+  if (slug === "family") eventTime = "11.00 - 13.00";
+  else if (slug === "friends") eventTime = "13.30 - 15.30";
   return (
     <div className={style.event}>
       <div className={style.inner}>
@@ -21,13 +24,15 @@ export default function EVent() {
             <div>09.00 - Selesai</div>
           </div>
         </div>
-        <div className="mb-10">
-          <div className="jemina-title mb-5">Resepsi</div>
-          <div className="font-halant text-sm font-semibold">
-            <div>Minggu, 14 Mei 2023</div>
-            <div>13.30 - 15.30</div>
+        {eventTime && (
+          <div className="mb-10">
+            <div className="jemina-title mb-5">Resepsi</div>
+            <div className="font-halant text-sm font-semibold">
+              <div>Minggu, 14 Mei 2023</div>
+              <div>{eventTime}</div>
+            </div>
           </div>
-        </div>
+        )}
         <div className="font-halant mb-5">Acara akan dilaksanakan di:</div>
         <div className="mb-5">
           <div className="jemina-title mb-5">Buni Manten Wedding Venue</div>

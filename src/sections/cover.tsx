@@ -16,7 +16,7 @@ export default function Cover({
   const toggle = () => setOpen(!isOpen);
 
   let guestName = "Tamu Terhormat";
-  if (query.for) guestName = `${query.for}`;
+  if (query.tamu) guestName = `${query.tamu}`;
 
   return (
     <div className={`${style.coverScreen} ${isOpen ? style.open : ""}`}>

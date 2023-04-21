@@ -20,7 +20,12 @@ main {
 }
 
 main {
-  @apply flex items-center font-halant;
+  @apply flex justify-center items-center font-halant text-white w-full max-w-md mx-auto;
+
+  & > div,
+  & > section {
+    @apply w-full;
+  }
 }
 
 .global-wrapper {
@@ -143,6 +148,7 @@ main {
 .textarea {
   @extend .input;
   @apply h-[44px] max-h-[44px] transition-all duration-200;
+  @apply resize-y;
 
   &:focus {
     @apply max-h-32 h-32;
