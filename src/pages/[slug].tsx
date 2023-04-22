@@ -1,14 +1,5 @@
-import { useState } from "react";
-import NewHero from "@/sections/new-hero";
-import Introduction from "@/sections/introduction";
-import EVent from "@/sections/Event";
-import Presence from "@/sections/presence";
-import Messages from "@/sections/messages";
-import Saklilane from "@/sections/saklilane";
-import NewCover from "@/sections/new-cover";
 import supabase from "@/supabase";
-import { useRouter } from "next/router";
-import Loading from "@/components/loading";
+import Home from ".";
 
 export async function getStaticPaths() {
   const { data } = await supabase().from("invited").select();
@@ -27,9 +18,15 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context: any) {
   const slug = context.params.slug;
-
+  // console.log("STATIC: ", slug);
   if (slug !== "pg" && slug !== "sg") {
     const { data } = await supabase().from("invited").select().eq("path", slug);
+
+    if (data && data.length < 1)
+      return {
+        redirect: { destination: "/404", permanent: false },
+      };
+
     return {
       props: { slug, user: data?.[0] },
     };
@@ -42,27 +39,5 @@ export async function getStaticProps(context: any) {
 }
 
 export default function SubSlug({ slug, user }: { slug: string; user: any }) {
-  const [opened, setOpened] = useState(false);
-
-  const { isFallback } = useRouter();
-
-  if (isFallback) return <Loading />;
-
-  return (
-    <section
-      className={`w-full max-w-md mx-auto text-white h-screen ${
-        opened ? "" : "overflow-hidden"
-      }`}
-    >
-      <div className="relative h-full">
-        <NewHero />
-        <Introduction />
-        <EVent slug={slug} user={user} />
-        <Presence slug={slug} />
-        <Messages />
-        <Saklilane />
-      </div>
-      <NewCover isOpen={opened} setOpen={setOpened} user={user} />
-    </section>
-  );
+  return <Home slug={slug} user={user} />;
 }
