@@ -45,7 +45,7 @@ function GuestBox({ g }: { g: any }) {
       </div>
       <div className="flex">
         <div className="w-1/5">Nama</div>
-        <div className="w-4/5">{g.name}</div>
+        <div className="w-4/5">: {g.name}</div>
       </div>
       <div className="flex">
         <div className="w-1/5">Sesi</div>
