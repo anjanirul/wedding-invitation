@@ -12,7 +12,7 @@ export default function NewCover({
 }) {
   const { query } = useRouter();
 
-  let guestName = query.tamu || "Tamu Terhormat";
+  let guestName = query.tamu || "Bapak/Ibu/Saudara/i";
   if (user && user.name) guestName = user.name;
 
   return (

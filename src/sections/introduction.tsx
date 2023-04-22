@@ -8,7 +8,7 @@ export default function Introduction() {
           <div className={style.brideName}>Mentari Dwianjani Puteri</div>
           <div className={style.brideOrigin}>
             <div>Putri dari:</div>
-            <div>Bpk. Joni Junarto Widiantiko & Ibu Diah Junias Handayani</div>
+            <div>Bpk. Joni Junarto & Ibu Diah Junias Handayani</div>
           </div>
         </div>
         <div className="mt-8">
