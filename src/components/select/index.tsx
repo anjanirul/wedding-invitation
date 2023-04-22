@@ -6,14 +6,18 @@ export default function Select({
   list,
   onChange,
   disabled,
+  value,
 }: {
   placeholder: string;
   list?: Array<object>;
   onChange?: (arg: any) => void;
   disabled?: boolean;
+  value?: any;
 }) {
   const [open, setOpen] = useState(false);
-  const [selected, setSelected] = useState<any>("");
+  const [selected, setSelected] = useState<any>(
+    list?.find((i: any) => i.value === value) || ""
+  );
 
   const toggle = () => {
     if (!disabled) setOpen(!open);

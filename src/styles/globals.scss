@@ -67,17 +67,27 @@ main {
     ),
     linear-gradient(180deg, #c0c0c0 0%, #636363 158.33%);
   transition: 0.1s ease-in-out;
-}
 
-.btn-white:hover,
-.btn-white:focus {
-  background: linear-gradient(
-      112.21deg,
-      rgba(251, 251, 251, 0.41) -9.15%,
-      #f1f6ef 48.87%,
-      rgba(251, 251, 251, 0) 119.29%
-    ),
-    linear-gradient(180deg, #c0c0c0 0%, #636363 158.33%);
+  &:hover,
+  &:focus {
+    background: linear-gradient(
+        112.21deg,
+        rgba(251, 251, 251, 0.41) -9.15%,
+        #f1f6ef 48.87%,
+        rgba(251, 251, 251, 0) 119.29%
+      ),
+      linear-gradient(180deg, #c0c0c0 0%, #636363 158.33%);
+  }
+
+  &.red {
+    background: transparent;
+    @apply bg-red-400 text-white;
+
+    &:hover,
+    &:focus {
+      @apply bg-red-700;
+    }
+  }
 }
 
 .btn-white:active {
