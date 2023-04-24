@@ -26,7 +26,7 @@ const fontJemina = localfont({
 });
 
 export default function App({ Component, pageProps }: AppProps) {
-  const fontClass = `${fontLavish.variable} ${fontJemina.variable} ${fontHalant.variable}`;
+  const fontClass = `relative ${fontLavish.variable} ${fontJemina.variable} ${fontHalant.variable}`;
 
   const title = "Anjani & Irul Invitation";
   const description =
