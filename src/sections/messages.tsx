@@ -37,7 +37,7 @@ const ChatItem = ({
     return console.log("NO DELETING");
   };
 
-  if (deleted) return "";
+  if (deleted) return <></>;
   return (
     <div className={`${style.chat} ${style[presence ? "yes" : "no"]}`}>
       <div className="flex items-start justify-between w-full mb-4">
