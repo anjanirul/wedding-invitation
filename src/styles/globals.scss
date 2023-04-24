@@ -88,6 +88,10 @@ main {
       @apply bg-red-700;
     }
   }
+
+  &.btn-sm {
+    @apply py-1;
+  }
 }
 
 .btn-white:active {
