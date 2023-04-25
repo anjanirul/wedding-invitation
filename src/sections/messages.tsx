@@ -13,6 +13,7 @@ const ChatItem = ({
   showGName,
   id,
   is_deleted,
+  showRemove,
 }: {
   name: string;
   message: string;
@@ -22,6 +23,7 @@ const ChatItem = ({
   showGName: boolean;
   id: string;
   is_deleted: boolean;
+  showRemove: boolean;
 }) => {
   const [deleted, setDeleted] = useState(false);
 
@@ -48,16 +50,18 @@ const ChatItem = ({
         <div>{showStatus && <div className={style.status} />}</div>
       </div>
       <div className={style.chatMessage}>{message}</div>
-      <div className="mt-4">
-        <button
-          type="button"
-          className="btn-white btn-sm red text-xs"
-          onClick={confirmRemove}
-          disabled={is_deleted}
-        >
-          REMOVE
-        </button>
-      </div>
+      {showRemove && (
+        <div className="mt-4">
+          <button
+            type="button"
+            className="btn-white btn-sm red text-xs"
+            onClick={confirmRemove}
+            disabled={is_deleted}
+          >
+            REMOVE
+          </button>
+        </div>
+      )}
     </div>
   );
 };
@@ -79,6 +83,7 @@ export default function Messages(props: any) {
               {...c}
               showStatus={guest === "anjanirul"}
               showGName={guest === "anjanirul"}
+              showRemove={guest === "anjanirul"}
             />
           ))}
         </div>
