@@ -2,6 +2,9 @@ import Loading from "@/components/loading";
 import Select from "@/components/select";
 import { fallbackCopyTextToClipboard, getSessionTime } from "@/helpers";
 import useGetGuests from "@/hooks/useGetGusets";
+import useGetMessage from "@/hooks/useGetMessage";
+import { ChatItem } from "@/sections/chat-item";
+
 import supabase from "@/supabase";
 import { useState } from "react";
 import { useSWRConfig } from "swr";
@@ -167,8 +170,52 @@ function FormWriteInvitation({
 }
 
 export default function InvitingArea() {
+  const [tab, setTab] = useState("undangan");
+
   const { guest, loading, isValidating } = useGetGuests();
+  const { messages }: { messages: Array<any> } = useGetMessage();
+
   let guestList = guest || [];
+  let messageList = messages || [];
+
+  const hadir = messageList.filter((m: any) => m.presence);
+  const tidakHadir = messageList.filter((m: any) => !m.presence);
+
+  const tablist = [
+    { id: "undangan", name: `${guestList.length} Undangan` },
+    { id: "hadir", name: `${hadir.length} Hadir` },
+    { id: "tidakhadir", name: `${tidakHadir.length} Tidak hadir` },
+  ];
+
+  let dataviews = (
+    <div className="mb-32 py-10">
+      <div className="jemina-title mb-10">Yang sudah diundang:</div>
+      {(loading || isValidating) && (
+        <div className="my-5 flex justify-center">
+          <Loading />
+        </div>
+      )}
+      {guestList.map((g: any) => (
+        <GuestBox key={g.id} g={g} />
+      ))}
+    </div>
+  );
+  if (tab === "hadir")
+    dataviews = (
+      <div className="mb-32 py-10">
+        {hadir.map((h, index) => (
+          <ChatItem key={index} {...h} showStatus showGName showRemove />
+        ))}
+      </div>
+    );
+  else if (tab === "tidakhadir")
+    dataviews = (
+      <div className="mb-32 py-10">
+        {tidakHadir.map((h, index) => (
+          <ChatItem key={index} {...h} showStatus showGName showRemove />
+        ))}
+      </div>
+    );
 
   return (
     <div className="max-w-lg mx-auto">
@@ -176,17 +223,23 @@ export default function InvitingArea() {
         <div className="jemina-title mb-10">Buat Link Undangan</div>
         <FormWriteInvitation />
       </div>
-      <div className="mb-32 py-10">
-        <div className="jemina-title mb-10">Yang sudah diundang:</div>
-        {(loading || isValidating) && (
-          <div className="my-5 flex justify-center">
-            <Loading />
-          </div>
-        )}
-        {guestList.map((g: any) => (
-          <GuestBox key={g.id} g={g} />
-        ))}
+      <div className="my-10">
+        <div className="jemina-title mb-4">COUNTER:</div>
+        <div className="flex justify-between gap-2">
+          {tablist.map((t: any) => (
+            <button
+              key={t.id}
+              onClick={() => setTab(t.id)}
+              className={`btn btn-large btn-primary ${
+                tab !== t.id ? "btn-outline" : ""
+              } w-1/3`}
+            >
+              {t.name}
+            </button>
+          ))}
+        </div>
       </div>
+      {dataviews}
     </div>
   );
 }

@@ -8,44 +8,44 @@
   .chatList {
     @apply relative h-[520px] overflow-y-auto;
   }
+}
 
-  .chat {
-    @apply bg-[#F1F6EF] py-5 px-5 text-black mb-4 rounded-[4px] text-left;
+.chat {
+  @apply bg-[#F1F6EF] py-5 px-5 text-black mb-4 rounded-[4px] text-left;
 
-    .chatName {
-      @apply text-sm font-semibold;
+  .chatName {
+    @apply text-sm font-semibold;
+  }
+
+  .chatMessage {
+    @apply text-sm leading-5;
+  }
+
+  .status {
+    @apply relative w-2 h-2 rounded-full bg-gray-400;
+
+    &::after {
+      content: "";
+      @apply absolute left-0 top-0 rounded-full w-full h-full bg-transparent border border-gray-400 animate-ping;
     }
+  }
 
-    .chatMessage {
-      @apply text-sm leading-5;
-    }
-
+  &.yes {
     .status {
-      @apply relative w-2 h-2 rounded-full bg-gray-400;
+      @apply bg-green-400;
 
       &::after {
-        content: "";
-        @apply absolute left-0 top-0 rounded-full w-full h-full bg-transparent border border-gray-400 animate-ping;
+        @apply border-green-400;
       }
     }
+  }
 
-    &.yes {
-      .status {
-        @apply bg-green-400;
+  &.no {
+    .status {
+      @apply bg-red-400;
 
-        &::after {
-          @apply border-green-400;
-        }
-      }
-    }
-
-    &.no {
-      .status {
-        @apply bg-red-400;
-
-        &::after {
-          @apply border-red-400;
-        }
+      &::after {
+        @apply border-red-400;
       }
     }
   }
